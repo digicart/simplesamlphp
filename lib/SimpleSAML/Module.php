@@ -152,8 +152,8 @@ class Module
             $module = substr($url, 1, $modEnd - 1);
             $url = substr($url, $modEnd + 1);
         }
-
-        if (!self::isModuleEnabled($module)) {
+        if (!in_array($module, self::getModules())) {
+//        if (!self::isModuleEnabled($module)) {
             throw new Error\NotFound('The module \'' . $module . '\' was either not found, or wasn\'t enabled.');
         }
 
